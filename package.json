@@ -4,6 +4,21 @@
   "main": "index.js",
   "author": "Mateus Medeiros <mateusmedeiros252525@hotmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node index",
+    "dev:base": "webpack-dev-server --config webpack.dev.js",
+    "dev": "yarn run dev:base -- --open",
+    "build": "webpack --config webpack.prod.js",
+    "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --passWithNoTests --no-cache --runInBand",
+    "test:watch": "yarn test -- --watch",
+    "test:staged": "yarn test -- --findRelatedTests",
+    "test:ci": "yarn test -- --coverage",
+    "test:coveralls": "yarn run test:ci && coveralls < coverage/lcov.info",
+    "test:cypress": "cypress open",
+    "test:cypress:run": "cypress run",
+    "test:cypress:ci": "start-server-and-test dev:base http-get://localhost:8080 test:cypress:run",
+    "check": "yarn-check -u -s"
+  },
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "@types/node": "^15.14.0",
