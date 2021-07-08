@@ -5,35 +5,44 @@
   "author": "Mateus Medeiros <mateusmedeiros252525@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index",
-    "dev:base": "webpack-dev-server --config webpack.dev.js",
-    "dev": "yarn run dev:base -- --open",
-    "build": "webpack --config webpack.prod.js",
-    "test": "cross-env NODE_ICU_DATA=node_modules/full-icu jest --passWithNoTests --no-cache --runInBand",
-    "test:watch": "yarn test -- --watch",
-    "test:staged": "yarn test -- --findRelatedTests",
-    "test:ci": "yarn test -- --coverage",
-    "test:coveralls": "yarn run test:ci && coveralls < coverage/lcov.info",
-    "test:cypress": "cypress open",
-    "test:cypress:run": "cypress run",
-    "test:cypress:ci": "start-server-and-test dev:base http-get://localhost:8080 test:cypress:run",
-    "check": "yarn-check -u -s"
+    "start": "webpack serve --open",
+    "test": "jest --passWithNoTests --no-cache --runInBand --watch"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/faker": "^5.5.6",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.14.0",
+    "@types/react": "^17.0.13",
+    "@types/react-dom": "^17.0.8",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^5.2.6",
     "eslint": "^7.29.0",
     "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
+    "faker": "^5.5.3",
     "git-commit-msg-linter": "^3.2.6",
     "husky": "^7.0.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
+    "node-sass": "^6.0.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.0.0",
     "ts-jest": "^27.0.3",
-    "typescript": "^4.3.5"
+    "ts-loader": "^9.2.3",
+    "typescript": "^4.3.5",
+    "webpack": "^5.42.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
